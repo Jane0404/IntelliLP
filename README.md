@@ -1,0 +1,1 @@
+It is a intelligent collaboration leanring partner which was a reserach proposal for the applicaiton of MCLS
