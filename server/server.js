@@ -4,8 +4,8 @@ const morgan = require('morgan')
 
 const app = express()
 const port = 3000
-const indexFile = path.join(__dirname, '../public/index.html')
-const PUBLIC_DIR = path.join(__dirname, '../public')
+const indexFile = path.join(__dirname, '../build/index.html')
+const PUBLIC_DIR = path.join(__dirname, '../build')
 
 app.use(morgan('dev'))
 app.use(express.static(PUBLIC_DIR))

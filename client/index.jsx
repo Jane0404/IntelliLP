@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Content from './components/Content'
 
 class Header extends React.Component{
     constructor(props){
@@ -11,5 +12,8 @@ class Header extends React.Component{
 }
 
 ReactDOM.render(
-    <Header />, document.getElementById('root')
+<div>
+    <Header />
+    <Content />
+</div>, document.getElementById('root')
 )
