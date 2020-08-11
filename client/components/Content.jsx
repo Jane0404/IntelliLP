@@ -10,8 +10,6 @@ export default class Content extends React.Component{
         super(props)
     }
     render(){
-        console.log('styles:', styles)
-        console.log('styles.helloRed:', styles.helloRed)
         return <div className={styles.helloRed}><p>I am so gald that you can see me</p></div>
     }
 }

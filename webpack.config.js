@@ -12,23 +12,31 @@ module.exports = {
             {
                 test:/\.(js|jsx)$/, 
                 exclude:/node_modules/, 
-                loader:'babel-loader'},
+                loader:'babel-loader'
+            },
             {
                 test: /\.css$/i, 
                 exclude:/node_modules/, 
-                use:[{
-                        loader:'style-loader'}, 
+                use:[
+                    {
+                        loader:'style-loader'
+                    }, 
                     {
                         loader:'css-loader', 
                         options:{
                             modules: true}
                     }
-                ]}
+                ]
+            },
+            {
+                test:/\.(png|svg|jpg|gif|ico)$/,
+                loader: 'file-loader'
+            }
         ]
     },
     plugins:[
-        new HtmlPlugin({template: './client/index.html'})
-    ],
+        new HtmlPlugin({template: './client/index.html', favicon:'./images/LP.ico'}),
+        ],
     resolve:{
         extensions:['.js', '.jsx']
     }
