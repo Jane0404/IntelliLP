@@ -2,7 +2,7 @@ const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: './client/index.jsx',
+    entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'index_bundle.js'
@@ -35,7 +35,7 @@ module.exports = {
         ]
     },
     plugins:[
-        new HtmlPlugin({template: './client/index.html', favicon:'./images/LP.ico'}),
+        new HtmlPlugin({template: './src/index.html', favicon:'./images/LP.ico'}),
         ],
     resolve:{
         extensions:['.js', '.jsx']
