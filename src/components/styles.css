@@ -1,0 +1,16 @@
+.square{
+    background-color:white;
+    padding:0;
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin-top: -1px;
+}
+.square:focus{
+    outline:none
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3, 49px);
+}
