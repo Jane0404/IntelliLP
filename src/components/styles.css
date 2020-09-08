@@ -5,12 +5,22 @@
     width: 50px;
     border: 1px solid black;
     margin-top: -1px;
+    font-size: 30px;
+    font-weight: bold;
 }
 .square:focus{
     outline:none
+}
+.square:disabled{
+    color:black
 }
 
 .board{
     display: grid;
     grid-template-columns: repeat(3, 49px);
+}
+.playerInfo{
+    font:2rem;
+    color:blue;
+    margin:5px
 }   
