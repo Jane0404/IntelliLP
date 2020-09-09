@@ -23,4 +23,18 @@
     font:2rem;
     color:blue;
     margin:5px
+}
+.formStyle{
+    margin-top: 30px;
+    text-align: center;
+}
+.title{
+    color:darkblue;
+    font: 3em normal;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.secondTitle{
+    font: 1.5em italic; 
+    text-align: center
 }   
