@@ -23,8 +23,9 @@ module.exports = {
                     }, 
                     {
                         loader:'css-loader', 
-                        options:{
-                            modules: true}
+                        // It is for using CSS modules, e.g., className = {Styles.pro}, when it is set true, the default mehtod className='pro' does not work
+                        // options:{
+                        //     modules: true}
                     }
                 ]
             },
