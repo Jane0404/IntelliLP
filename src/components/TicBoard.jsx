@@ -1,16 +1,8 @@
 import React from 'react'
 import './styles.css'
-//import Square from './Square'
+import Square from './Square'
 
-function Square(props){
-    return(
-        <button disabled={props.disabled} className='square' onClick={props.onClick}>
-            {props.value}
-        </button>
-    )
-}
-
-export default class Board extends React.Component{
+export default class TicBoard extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -20,6 +12,7 @@ export default class Board extends React.Component{
         }
 
         this.handleClick = this.handleClick.bind(this)
+        this.clearBoard = this.clearBoard.bind(this)
 
     }
 
@@ -44,6 +37,9 @@ export default class Board extends React.Component{
             this.setState({squares_values:copy_squares, squares_disabled: copy_disabled, player:'X'})
         }
     }
+    clearBoard(){
+        this.setState({squares_values: Array(9).fill(null), squares_disabled: Array(9).fill(false), player: 'X'})
+    }
 
     render(){
         let squares = []
@@ -52,11 +48,14 @@ export default class Board extends React.Component{
         }
 
         return(
-            <div>
+            <div className='centerBoard'>
+                <div>
+                    <button type='button' onClick={this.clearBoard}>Clear Board</button>
+                </div>
                 <div className='playerInfo'>
                     Next player is {this.state.player}
                 </div>
-                <div className='board'>
+                <div className='ticBoard'>
                     {squares}
                 </div>
             </div>
