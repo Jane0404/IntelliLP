@@ -2,3 +2,5 @@ node_modules/
 package-lock.json
 build/
 images/
+todo.txt
+/src/components/Test.jsx
