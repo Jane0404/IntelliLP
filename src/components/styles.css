@@ -27,7 +27,8 @@
 .playerInfo{
     font:2rem;
     color:blue;
-    margin:5px
+    margin-top:20px;
+    margin-bottom: 10px;
 }
 .title{
     color:darkblue;
@@ -59,4 +60,13 @@ header{
     margin-right: auto;
     width:200px;
     text-align: center;
+}
+.boardLayout{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows:minmax(200px, auto)
+}
+.optionsLayout{
+    display:flex;
+    flex-direction: column;
 }

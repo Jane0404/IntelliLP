@@ -1,12 +1,13 @@
 import React from 'react'
-import TicBoard from './TicBoard'
 import './styles.css'
 import { 
     BrowserRouter as Router,
     Switch,
     Link,
-    Route
+    Route,
+    useParams
 } from 'react-router-dom'
+import Board from './Board'
 
 export default class Game extends React.Component{
   
@@ -39,11 +40,8 @@ export default class Game extends React.Component{
                     </nav>
                 <hr />
                 <Switch>
-                    <Route exact path='/'><Home /></Route>
-                    <Route path='/tic'><TicBoard /></Route>
-                    <Route path='/go3'><GoBoard value={3} /></Route>
-                    <Route path='/go9'><GoBoard value={9} /></Route> 
-                    <Route path='/go19'><GoBoard value={19} /></Route>  
+                    <Route exact path='/'> <Home /> </Route>
+                    <Route path='/:id' children={<CallBoard />}/>
                 </Switch>
                 </div> 
             </Router>
@@ -51,11 +49,13 @@ export default class Game extends React.Component{
     }
 }
 
-function GoBoard(props){
+function CallBoard() {
+    let {id} = useParams()
     return(
-    <p>The length of board is {props.value}</p>
+        <Board value={id}/>
     )
 }
+
 function Home(){
     return(
         <p>AI-FeiGo is a collaborative learning platform of learning games</p>
