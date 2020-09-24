@@ -2,7 +2,8 @@ import React from 'react'
 import './styles.css'
 import TicBoard from './TicBoard'
 import Options from './Options'
-import FeedBack from './Feedback'
+import Analytics from './Analytics'
+import Prediction from './Prediction'
 
 export default class Board extends React.Component{
     render(){
@@ -29,11 +30,12 @@ export default class Board extends React.Component{
                 <div>
                     <Options />
                 </div>
-                <div>
-                    {component}
+                <div className='middleLayout'> 
+                        {component}
+                        <Prediction />
                 </div>
                 <div>
-                    <FeedBack />
+                    <Analytics />
                 </div>
             </div>
         )

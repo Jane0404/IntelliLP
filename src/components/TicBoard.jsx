@@ -122,13 +122,11 @@ export default class TicBoard extends React.Component{
         displayInfo = this.state.win? 'The winner is ' + this.state.player : 'The next player is ' + this.state.player
         
         return(
-            <div className='centerBoard'>
-                <div>
-                    <button type='button' onClick={this.clearBoard} >Clear Board</button>
-                </div>
-                <div className='playerInfo'>
+            <div>
+                <button type='button' onClick={this.clearBoard} >Clear Board</button>
+                <p className='playerInfo'>
                     {displayInfo}
-                </div>
+                </p>
                 <div className='ticBoard'>
                     {squares}
                 </div>

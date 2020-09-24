@@ -4,3 +4,5 @@ build/
 images/
 todo.txt
 /src/components/Test.jsx
+/server/test.js
+/test

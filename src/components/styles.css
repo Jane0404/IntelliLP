@@ -18,17 +18,13 @@
 .ticBoard{
     display: grid;
     grid-template-columns: repeat(3, 49px);
-    margin-left: auto;
-    margin-right: auto;
-    width: 147px;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 .playerInfo{
     font:2rem;
     color:blue;
     margin-top:20px;
     margin-bottom: 10px;
+    text-align: center;
 }
 .title{
     color:darkblue;
@@ -49,24 +45,28 @@ header{
     background-color: rgb(30, 203, 247);
     margin-top: 0px;
     height: 40px;
-    line-height:40px;
+    align-items: center;
 }
 .nav-li{
     flex-grow:1;
-    /* vertical-align: ; */
 } 
-.centerBoard{
-    margin-left: auto;
-    margin-right: auto;
-    width:200px;
-    text-align: center;
-}
+
 .boardLayout{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows:minmax(200px, auto)
+    display:grid;
+    grid-template-columns: 1.5fr 3fr 2fr;
 }
-.optionsLayout{
+
+.middleLayout{
     display:flex;
     flex-direction: column;
+    align-items: center;
+    border-left: 1px solid darkblue;
+    border-right: 1px solid darkblue
+}
+
+.optionsLayout{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width:150px
 }

@@ -16,6 +16,3 @@ app.get('/', (req, res) => {
 app.listen(port, ()=>{
     console.log(`App listening at http://localhost:${port}`)
 })
-
-let a = ['a','b','c']
-b = a.map((m, n, z)=>{console.log(m, n, z)})
