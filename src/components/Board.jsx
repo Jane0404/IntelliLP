@@ -7,7 +7,6 @@ import Prediction from './Prediction'
 
 export default class Board extends React.Component{
     render(){
-        console.log(this.props.value)
         let component
         switch(this.props.value){
             case 'tic': 
@@ -23,18 +22,18 @@ export default class Board extends React.Component{
                 component = <GoBoard value={19} />
                 break
             default:
-                component = <Home />
+                component = null
         }
         return(
             <div className='boardLayout'>
-                <div>
+                <div className='optionsLayout'>
                     <Options />
                 </div>
                 <div className='middleLayout'> 
                         {component}
-                        <Prediction />
                 </div>
-                <div>
+                <div className='secondRowLayout'>
+                    <Prediction />
                     <Analytics />
                 </div>
             </div>

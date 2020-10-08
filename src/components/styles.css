@@ -24,7 +24,6 @@
     color:blue;
     margin-top:20px;
     margin-bottom: 10px;
-    text-align: center;
 }
 .title{
     color:darkblue;
@@ -38,11 +37,11 @@
     margin-bottom: 0px;
 } 
 header{
-    background-color: rgb(58, 203, 240)
+    background-color: rgb(10, 195, 241)
 } 
 .nav-ul{
     display: flex;
-    background-color: rgb(30, 203, 247);
+    background-color: rgb(10, 195, 241);
     margin-top: 0px;
     height: 40px;
     align-items: center;
@@ -53,20 +52,33 @@ header{
 
 .boardLayout{
     display:grid;
-    grid-template-columns: 1.5fr 3fr 2fr;
-}
-
-.middleLayout{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    border-left: 1px solid darkblue;
-    border-right: 1px solid darkblue
+    grid-template-columns: auto 5fr;
+    grid-template-rows:auto;
 }
 
 .optionsLayout{
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    width:150px
+    width:150px;
+    grid-column:1;
+    grid-row: 1
+}
+.secondRowLayout{
+    display: flex;
+    flex-direction: column;
+    grid-column:1/3;
+    grid-row:2;
+    background-color: rgb(240, 247, 245);
+    text-align: center;
+    margin-top: 50px
+}
+
+.middleLayout{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    grid-column: 2;
+    grid-row:1;
+    align-items: center;
 }

@@ -14,8 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mobx": "^5.15.7",
-    "mobx-react": "^6.3.0",
+    "mobx": "^6.0.1",
+    "mobx-react": "^7.0.0",
     "morgan": "^1.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
