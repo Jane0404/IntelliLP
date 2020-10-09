@@ -85,4 +85,12 @@ export default class TicStore{
             }
         return false
     }
+
+    clearBoard(){
+        this.player='X'
+        this.moves= new Array(9).fill(null)
+        this.win=false
+        this.clicked= new Array(9).fill(false)
+        this.history={moves:[], clicked:[]} 
+    }
 }

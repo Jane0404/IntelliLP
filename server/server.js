@@ -9,7 +9,7 @@ const PUBLIC_DIR = path.join(__dirname, '../build')
 
 app.use(morgan('dev'))
 app.use(express.static(PUBLIC_DIR))
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(indexFile)
 })
 
