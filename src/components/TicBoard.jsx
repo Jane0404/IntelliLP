@@ -2,11 +2,11 @@ import React from 'react'
 import './styles.css'
 import Square from './Square'
 import {observer} from 'mobx-react'
-import {TicContext} from '../contexts/contexts'
+import {BoardContext} from '../contexts/contexts'
 
 @observer
 export default class TicBoard extends React.Component{
-    static contextType = TicContext
+    static contextType = BoardContext
     render(){
         this.board = this.context
         let keys = new Array(0,1,2,3,4,5,6,7,8)

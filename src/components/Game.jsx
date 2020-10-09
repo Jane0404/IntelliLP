@@ -8,14 +8,9 @@ import {
     useParams
 } from 'react-router-dom'
 import Board from './Board'
-import {TicStore} from '../stores/stores'
-import {observer} from 'mobx-react'
-import {TicContext} from '../contexts/contexts'
 
-const ticStore = new TicStore()
 
 export default class Game extends React.Component{
-  
     render(){
         return(
             <Router>
@@ -32,11 +27,11 @@ export default class Game extends React.Component{
                             <Link to='/tic'>Tic-Tac-Toe</Link>
                         </li>
                         <li className='nav-li'>
-                            <Link to='/go3'>Go game 3*3 board</Link>
-                        </li>
-                        <li className='nav-li'>
                             <Link to='/go9'>Go game 9*9 board</Link>
                         </li> 
+                        <li className='nav-li'>
+                            <Link to='/go13'>Go game 13*13 board</Link>
+                        </li>
                         <li className='nav-li'>
                             <Link to='/go19'>Go game 19*19 board</Link>
                         </li>
@@ -55,14 +50,12 @@ export default class Game extends React.Component{
 function CallBoard() {
     let {id} = useParams()
     return(
-        <TicContext.Provider value={ticStore}>
-            <Board value={id}/>
-        </TicContext.Provider>
+        <Board value={id}/>
     )
 }
 
 function Home(){
     return(
-        <p>AI-FeiGo is a collaborative learning platform of learning games</p>
+        <p>AI-FeiGo is a collaborative learning platform for learning games. <br/>It is augmented with deep learning technologies and learning theories like collaborative learning and gamification. <br/>Its goal is to enhance learners' decision-making skills in board games by real-time evaluations and predictions generated from deep neural networks.</p>
     )
 }
