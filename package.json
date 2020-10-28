@@ -2,13 +2,17 @@
   "name": "aifeigo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.jsx",
+  "main": "src/index.jsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sxjane/AIFEIGO.git"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/server.js",
     "build": "webpack --mode production",
     "server": "nodemon ./server/server.js",
     "client": "webpack --mode development --watch --watch-aggregate-timeout 100 --watch-poll 1000",
-    "flow": "flow"
+    "dev": "npm run server & npm run client"
   },
   "author": "Xiaojie Si",
   "license": "ISC",
@@ -16,6 +20,9 @@
     "express": "^4.17.1",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",
+    "mongo-express": "^1.0.0-alpha.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.11",
     "morgan": "^1.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
