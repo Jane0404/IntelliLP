@@ -1,8 +1,8 @@
 const express = require('express')
 const path = require('path')
 const morgan = require('morgan')
-const MongoBot = require('./dao/mongoBot')
-const dao = require('./dao/dao')
+const mongoBot = require('./dao/mongoBot')
+const {startMongoDB} = require('./utilities/utilities')
 
 // start restful
 const app = express()
@@ -18,16 +18,15 @@ app.get('/*', (req, res) => {
     res.sendFile(indexFile)
 })
 
-// start database 
-const url = 'mongodb://root:example@localhost:27017'
-const dbName = 'ai_db'
-new MongoBot(url,dbName,(db)=>{
-    const {boardDao} = dao.init(db)
-    const moves = new Array(9).fill(null)
-    boardDao.insertOne(moves)
-    //db.board_history.insertOne(moves)
-})
+async function start(){
+    daos = await startMongoDB()
+    app.put('/save_board',(req, res) => {
+        const body = req.body
+        res.send('/save_board/received')
+    })
+}
 
+start()
 // start server
 app.listen(port, ()=>{
     console.log(`App listening at http://localhost:${port}`)

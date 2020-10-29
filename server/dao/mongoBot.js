@@ -1,17 +1,20 @@
 const MongoClient = require('mongodb').MongoClient
-const assert = require('assert')
+const daos = require('./dao')
+const {DB_NAME} = require('../../share/routes') 
+const BoardDao = require('../dao/boardDao')
 
 class MongoBot{
-    constructor(url, dbName, callback){
-        console.log('constructor of mongobot')
-        console.log(url,dbName)
-        MongoClient.connect(url, { useUnifiedTopology: true }, (err, client)=>{
-            assert.equal(null, err)
-            console.log("Connected sucessfully to the mongodb server")
-            this.db = client.db(dbName)
-            callback(this.db)
-        })
+    constructor(){
+        const url = 'mongodb://root:example@localhost:27017'
+        this.client = new MongoClient(url,{useUnifiedTopology: true })
+    }
+    async init(){
+        await this.client.connect()
+        console.log("MongoDB server is connected.")
+        this.db = this.client.db(DB_NAME)
+        this.daos = daos.init(this.db)
+        return this.daos
     }
 }
 
-module.exports = MongoBot
+module.exports = new MongoBot()
