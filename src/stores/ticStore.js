@@ -1,4 +1,5 @@
 import {makeAutoObservable} from 'mobx'
+import axios from 'axios'
 
 export default class TicStore{   
     player='X'
@@ -92,5 +93,12 @@ export default class TicStore{
         this.win=false
         this.clicked= new Array(9).fill(false)
         this.history={moves:[], clicked:[]} 
+    }
+    saveBoard(){
+        axios.put('/save_board', 
+            {'moves':this.moves})
+            .then((res)=>{
+                console.log(res)
+            })
     }
 }
