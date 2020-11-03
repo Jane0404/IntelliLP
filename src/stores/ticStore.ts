@@ -2,17 +2,25 @@ import {makeAutoObservable} from 'mobx'
 import axios from 'axios'
 
 export default class TicStore{   
-    player='X'
-    moves= new Array(9).fill(null)
-    win=false
-    clicked= new Array(9).fill(false)
-    history={moves:[], clicked:[]} 
+    player: string
+    moves: Array<string | null>
+    win: boolean
+    clicked: Array<boolean>
+    history: {
+        moves:Array<Array<string|null>>,
+        clicked:Array<Array<boolean>>
+    }
 
     constructor(){
+        this.player ='X'
+        this.moves = new Array(9).fill(null)
+        this.win=false
+        this.clicked= new Array(9).fill(false)
+        this.history={moves:[], clicked:[]} 
         makeAutoObservable(this)
     }
 
-    nextMove(index){
+    nextMove(index:number) : void{
         this.history.moves.push(this.moves.slice())
         this.history.clicked.push(this.clicked.slice())
         this.moves[index] = this.player
@@ -25,19 +33,19 @@ export default class TicStore{
         }
     }
 
-    stopPlay(){
+    stopPlay():void{
         this.history.moves.push(this.moves.slice())
         this.clicked = new Array(9).fill(true)
         this.history.clicked.push(this.clicked.slice())
     }
 
-    calculateWin(i, copy_squares){
+    calculateWin(i:number, copy_squares:Array<string|null>):boolean{
         let win = false
         const dim = 3
         let first_dim = Math.floor(i / dim)
         let second_dim = i % dim
 
-        // the first line is a row line 
+        // check the row line 
         switch(first_dim){
             case 0: 
             win=this.checkWin([0,1,2], copy_squares)
@@ -49,7 +57,7 @@ export default class TicStore{
             win=this.checkWin([6,7,8], copy_squares)
         } 
 
-        // the second line is a column line 
+        // check the column line 
         if(!win){
             switch(second_dim){
                 case 0: 
@@ -63,7 +71,7 @@ export default class TicStore{
             }
         }
         
-        // the third line is slash line for corned squares and the center square
+        // check the slash line 
         if(!win){
             if((first_dim == 0 && second_dim == 0) || (first_dim == 2 && second_dim == 2)){
                 win=this.checkWin([0,4,8], copy_squares)
@@ -79,7 +87,7 @@ export default class TicStore{
         return win
     }
 
-    checkWin(line, copy_squares){
+    checkWin(line:Array<number>, copy_squares:Array<string|null>):boolean{
         if(copy_squares[line[0]] == copy_squares[line[1]] &&
             copy_squares[line[1]] == copy_squares[line[2]]) {
                 return true;
@@ -87,18 +95,31 @@ export default class TicStore{
         return false
     }
 
-    clearBoard(){
+    clearBoard():void{
         this.player='X'
         this.moves= new Array(9).fill(null)
         this.win=false
         this.clicked= new Array(9).fill(false)
         this.history={moves:[], clicked:[]} 
     }
-    saveBoard(){
-        axios.put('/save_board', 
-            {'moves':this.moves})
-            .then((res)=>{
-                console.log(res)
+
+    async saveBoard():Promise<boolean>{
+        return axios.put('/save_board', {'history':this.history}).catch((error)=>{
+            return false
+        }).then((res)=>{
+            return true
+        })
+    }
+
+    saveBoard2():Promise<boolean>{
+        return new Promise((resolve,reject)=>{
+            axios.put('/save_board',{'history':this.history})
+            .catch(e=>{
+                console.log(e)
+                reject(false)
+            }).then(res=>{
+                resolve(true)
             })
+        })
     }
 }

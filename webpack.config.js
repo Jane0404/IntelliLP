@@ -7,6 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, './build'),
         filename: 'index_bundle.js'
     },
+    devtool: 'inline-source-map',
     module:{
         rules:[
             {
@@ -32,13 +33,18 @@ module.exports = {
             {
                 test:/\.(png|svg|jpg|gif|ico)$/,
                 loader: 'file-loader'
-            }
-        ]
+            },
+            {
+                test:/\.tsx?$/,
+                loader:'ts-loader',
+                exclude: /node_modules/
+            },
+        ],
     },
     plugins:[
         new HtmlPlugin({template: './src/index.html', favicon:'./images/LP.ico'}),
         ],
     resolve:{
-        extensions:['.js', '.jsx']
+        extensions:['.tsx','.ts','.js', '.jsx']
     }
 }

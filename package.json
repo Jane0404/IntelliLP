@@ -8,11 +8,11 @@
     "url": "https://github.com/sxjane/AIFEIGO.git"
   },
   "scripts": {
-    "start": "node ./server/server.js",
-    "build": "webpack --mode production",
     "server": "nodemon ./server/server.js",
     "client": "webpack --mode development --watch --watch-aggregate-timeout 100 --watch-poll 1000",
-    "dev": "npm run server & npm run client"
+    "dev": "npm run server & npm run client",
+    "build": "webpack --mode production",
+    "tsc": "tsc"
   },
   "author": "Xiaojie Si",
   "license": "ISC",
@@ -34,15 +34,19 @@
     "@babel/core": "^7.11.1",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-flow": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@babel/runtime": "^7.12.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "nodemon": "^2.0.4",
     "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.5",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   }
