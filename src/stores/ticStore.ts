@@ -1,4 +1,4 @@
-import {makeAutoObservable} from 'mobx'
+import {makeObservable, observable, action} from 'mobx'
 import BoardStore from './boardStore'
 import {Board, BoardStorePrototype} from '../types/board'
 
@@ -18,7 +18,17 @@ export default class TicStore extends BoardStore implements BoardStorePrototype 
         this.clicked= new Array(9).fill(false)
         this.win = false
         this.length = 3
-        makeAutoObservable(this)
+        makeObservable(this,{
+            player: observable,
+            board: observable,
+            clicked: observable,
+            win: observable,
+            move: action,
+            stop: action,
+            checkWin: action,
+            reset: action
+        })
+        
     }
 
     move(pos:number):void{

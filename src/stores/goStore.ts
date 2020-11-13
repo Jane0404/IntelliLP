@@ -1,4 +1,4 @@
-import {makeAutoObservable} from 'mobx'
+import {makeObservable, observable, action} from 'mobx'
 import {BoardStorePrototype, Board} from '../types/board'
 import BoardStore from './boardStore'
 
@@ -19,7 +19,18 @@ export default class GoStore extends BoardStore implements BoardStorePrototype {
         this.clicked = []
         this.length = length
         this.win = false
-        makeAutoObservable(this)
+        
+        makeObservable(this, {
+            player: observable,
+            board: observable,
+            clicked: observable,
+            win: observable,
+            move: action,
+            stop: action,
+            checkWin: action,
+            reset: action
+        })
+        
     }
 
     click(){

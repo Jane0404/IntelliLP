@@ -4,7 +4,7 @@ import {observer} from 'mobx-react'
 
 type MyProps = {
     key: number,
-    value: string,
+    value: string | number | null,
     disabled: boolean,
     onClick: ()=>void
 }

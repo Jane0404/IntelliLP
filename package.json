@@ -2,7 +2,7 @@
   "name": "aifeigo",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.jsx",
+  "main": "src/index.tsx",
   "repository": {
     "type": "git",
     "url": "https://github.com/sxjane/AIFEIGO.git"
