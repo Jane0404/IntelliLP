@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient
 const daos = require('./dao')
 const {DB_NAME} = require('../../share/routes') 
-const BoardDao = require('../dao/boardDao')
+const BoardDao = require('./boardDao')
 
 class MongoBot{
     constructor(){

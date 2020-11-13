@@ -43,7 +43,7 @@ module.exports = {
     },
     plugins:[
         new HtmlPlugin({template: './src/index.html', favicon:'./images/LP.ico'}),
-        ],
+    ],
     resolve:{
         extensions:['.tsx','.ts','.js', '.jsx']
     }

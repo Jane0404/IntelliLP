@@ -7,7 +7,7 @@ import {
     Route,
     useParams
 } from 'react-router-dom'
-import Board from './Board'
+import BoardGame from './BoardGame'
 
 
 export default class Game extends React.Component{
@@ -48,9 +48,9 @@ export default class Game extends React.Component{
 }
 
 function CallBoard() {
-    let {id} = useParams()
+    let {id} = useParams<{id:string}>()
     return(
-        <Board value={id}/>
+        <BoardGame id={id}/>
     )
 }
 

@@ -5,41 +5,41 @@ import Options from './Options'
 import Analytics from './Analytics'
 import Prediction from './Prediction'
 import GoBoard from './GoBoard'
-import {
-    TicStore, 
-    Go9Store, 
-    Go13Store, 
-    Go19Store
-} from '../stores/stores'
-import {
-   BoardContext
-} from '../contexts/contexts'
+import {TicStore, GoStore} from '../stores/stores'
+import {BoardContext} from '../contexts/contexts'
+import {BoardStorePrototype} from '../types/board'
 
-export default class Board extends React.Component{
+type MyProps = {
+    id: string
+}
+
+export default class Board extends React.Component<MyProps>{
     render(){
-        let component
-        let contextStore
-        switch(this.props.value){
+        let component: JSX.Element | null
+        let contextStore: BoardStorePrototype | null
+       
+        switch(this.props.id){
             case 'tic': 
                 component = <TicBoard />
-                contextStore = TicStore
+                contextStore = new TicStore()
                 break
             case 'go9':
                 component = <GoBoard/>
-                contextStore = Go9Store
+                contextStore = new GoStore(9)
                 break
             case 'go13':
                 component = <GoBoard />
-                contextStore = Go13Store
+                contextStore = new GoStore(13)
                 break
             case 'go19':
                 component = <GoBoard />
-                contextStore = Go19Store
+                contextStore = new GoStore(19)
                 break
             default:
                 component = null
                 contextStore = null
         }
+        
         return(
             <BoardContext.Provider value={contextStore}>
                 <div className='boardLayout'>

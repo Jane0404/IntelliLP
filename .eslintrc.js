@@ -1,12 +1,13 @@
 module.exports = {
     'env': {
         'browser': true,
-        'es2021': true
+        'node':true
     },
     'extends': [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
+        'plugin:node/recommended'
     ],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
@@ -22,7 +23,7 @@ module.exports = {
     ],
     'rules': {
         'indent': [
-            'error',
+            'warn',
             4
         ],
         'linebreak-style': [
@@ -35,7 +36,13 @@ module.exports = {
         ],
         'semi': [
             'error',
-            'always'
-        ]
-    }
-};
+            'never'
+        ],
+        '@typescript-eslint/no-var-requires':0
+    },
+    'settings':{
+        'react':{
+            'version':'detect'
+        }
+    } 
+}
