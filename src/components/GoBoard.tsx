@@ -1,7 +1,6 @@
 import {observer} from 'mobx-react'
 import React from 'react'
 import {BoardContext} from '../contexts/contexts'
-import {BoardStorePrototype} from '../types/board'
 
 @observer
 export default class GoBoard extends React.Component{

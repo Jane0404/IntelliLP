@@ -16,7 +16,7 @@ module.exports = {
                 loader:'babel-loader'
             },
             {
-                test: /\.css$/i, 
+                test: /\.(css|scss|sass)$/, 
                 exclude:/node_modules/, 
                 use:[
                     {
@@ -27,6 +27,12 @@ module.exports = {
                         // It is for using CSS modules, e.g., className = {Styles.pro}, when it is set true, the default mehtod className='pro' does not work
                         // options:{
                         //     modules: true}
+                    },
+                    {
+                        loader:'sass-loader',
+                        options:{
+                            sourceMap:true
+                        }
                     }
                 ]
             },
@@ -35,7 +41,7 @@ module.exports = {
                 loader: 'file-loader'
             },
             {
-                test:/\.tsx?$/,
+                test:/\.(ts|tsx)$/,
                 loader:'ts-loader',
                 exclude: /node_modules/
             },

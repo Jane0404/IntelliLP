@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './styles.scss'
 import Square from './Square'
 import {observer} from 'mobx-react'
 import {BoardContext} from '../contexts/contexts'

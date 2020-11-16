@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './styles.scss'
 import TicBoard from './TicBoard'
 import Options from './Options'
 import Analytics from './Analytics'
