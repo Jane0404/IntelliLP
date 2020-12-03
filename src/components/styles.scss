@@ -1,3 +1,5 @@
+$blue-back-color: rgb(10, 195, 241);
+
 .square{
     background-color:white;
     padding:0;
@@ -37,11 +39,11 @@
     margin-bottom: 0px;
 } 
 header{
-    background-color: rgb(10, 195, 241)
+    background-color: $blue-back-color;
 } 
 .nav-ul{
     display: flex;
-    background-color: rgb(10, 195, 241);
+    background-color: $blue-back-color;
     margin-top: 0px;
     height: 40px;
     align-items: center;

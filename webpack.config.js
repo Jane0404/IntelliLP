@@ -2,11 +2,12 @@ const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: './src/index.jsx',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'index_bundle.js'
     },
+    devtool: 'inline-source-map',
     module:{
         rules:[
             {
@@ -15,7 +16,7 @@ module.exports = {
                 loader:'babel-loader'
             },
             {
-                test: /\.css$/i, 
+                test: /\.(css|scss|sass)$/, 
                 exclude:/node_modules/, 
                 use:[
                     {
@@ -26,19 +27,30 @@ module.exports = {
                         // It is for using CSS modules, e.g., className = {Styles.pro}, when it is set true, the default mehtod className='pro' does not work
                         // options:{
                         //     modules: true}
+                    },
+                    {
+                        loader:'sass-loader',
+                        options:{
+                            sourceMap:true
+                        }
                     }
                 ]
             },
             {
                 test:/\.(png|svg|jpg|gif|ico)$/,
                 loader: 'file-loader'
-            }
-        ]
+            },
+            {
+                test:/\.(ts|tsx)$/,
+                loader:'ts-loader',
+                exclude: /node_modules/
+            },
+        ],
     },
     plugins:[
         new HtmlPlugin({template: './src/index.html', favicon:'./images/LP.ico'}),
-        ],
+    ],
     resolve:{
-        extensions:['.js', '.jsx']
+        extensions:['.tsx','.ts','.js', '.jsx']
     }
 }
