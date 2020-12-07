@@ -23,6 +23,7 @@ export default class TicStore extends BoardStore implements BoardStorePrototype 
             board: observable,
             clicked: observable,
             win: observable,
+            length: observable,
             move: action,
             stop: action,
             checkWin: action,
