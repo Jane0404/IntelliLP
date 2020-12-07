@@ -13,8 +13,8 @@ export default class GoStore extends BoardStore implements BoardStorePrototype {
 
     constructor(length:number){
         super()
-        this.starter = '' 
-        this.player = ''
+        this.starter = 'X' 
+        this.player = this.starter
         this.board = []
         this.clicked = []
         this.length = length
@@ -25,6 +25,7 @@ export default class GoStore extends BoardStore implements BoardStorePrototype {
             board: observable,
             clicked: observable,
             win: observable,
+            length: observable,
             move: action,
             stop: action,
             checkWin: action,
@@ -53,5 +54,6 @@ export default class GoStore extends BoardStore implements BoardStorePrototype {
     reset(){
         return null
     }
+
 
 }
